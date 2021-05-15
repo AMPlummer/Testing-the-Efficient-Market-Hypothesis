@@ -9,7 +9,7 @@ library(magrittr)
 library(tidyverse)
 
 # Set work directory
-setwd("C:\\Users\\plua\\Desktop\\Academic Papers\\Efficiency\\LargeCap")
+setwd("")
 
 # Load data
 data <- read.csv("largecap.csv")
