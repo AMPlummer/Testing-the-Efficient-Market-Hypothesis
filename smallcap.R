@@ -6,14 +6,14 @@ library(pracma)
 library(tidyverse)
 library(tseries)
 # Set work directory
-setwd("C:\\Users\\plua\\Desktop\\Academic Papers\\Efficiency\\SmallCap")
+setwd("")
 
 # Load data
 data <- read.csv("smallcap.csv")
 
 # Data cleaning
 data <- map_df(data, rev)
-data$ï..Date <- seq(as.Date("1999-6-1"), as.Date("2021-4-1"), by = "months")
+data$Ã¯..Date <- seq(as.Date("1999-6-1"), as.Date("2021-4-1"), by = "months")
 data$Price <- as.numeric(data$Price)
 
 
@@ -35,7 +35,7 @@ data$StockReturns <- Delt(data$Price, k = 12) * 100
 data$Loss <- ifelse(data$StockReturns < 0, "1", "0")
 
 # Draw line plot of Monthly Stock Returns of S&P/TSX Composite
-fig <- ggplot(data, aes(x = ï..Date, y = StockReturns, fill = Loss)) 
+fig <- ggplot(data, aes(x = Ã¯..Date, y = StockReturns, fill = Loss)) 
 fig <- fig + geom_bar(stat = "identity") + theme_minimal() 
 fig <- fig + scale_fill_manual(values = c("green", "red")) + theme(legend.position = "none")
 fig <- fig + labs(title = "S&P/TSX SmallCap Index year-over-year Monthly Returns", subtitle = "1999 - 2021",
@@ -43,7 +43,7 @@ fig <- fig + labs(title = "S&P/TSX SmallCap Index year-over-year Monthly Returns
 fig
 mean(data$StockReturns, na.rm = TRUE)
 # Create dataframe of hurst exponent 
-returns <- data %>% select(c("ï..Date", "StockReturns"))
+returns <- data %>% select(c("Ã¯..Date", "StockReturns"))
 returns <- read.zoo(subset(returns, !is.na(returns$StockReturns)))
 hurstexp(returns)
 new_data <- data.frame(rollapplyr(returns, 200, hurstexp))
