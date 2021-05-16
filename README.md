@@ -3,4 +3,4 @@ I use the Hurst Exponent to estimate the degree to which Canadian large cap stoc
 
 I conclude that markets are mostly efficient in the long run with periods of inefficiency in the short run.
 
-You can find the accompanying article here: 
+You can find the accompanying article here: https://medium.com/alpha-beta-blog/how-efficient-are-markets-really-4a4c82dfa831
