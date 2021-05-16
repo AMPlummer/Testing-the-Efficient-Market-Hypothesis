@@ -9,7 +9,7 @@ library(tseries)
 setwd("")
 
 # Load data
-data <- read.csv("smallcap.csv")
+data <- read.csv("S&P_TSX Canadian Small Cap Historical Data.csv")
 
 # Data cleaning
 data <- map_df(data, rev)
