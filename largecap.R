@@ -12,7 +12,7 @@ library(tidyverse)
 setwd("")
 
 # Load data
-data <- read.csv("largecap.csv")
+data <- read.csv("S_PComposite.csv")
 # Data cleaning
 data$Date <- as.Date(data$Date)
 data$Adj.Close <- as.numeric(data$Adj.Close)
